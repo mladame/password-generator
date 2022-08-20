@@ -16,11 +16,11 @@
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-// define variables (consolidate? array?)
-var lowerCase = "abcdefghijklmnopqrstuvwxyz";
-var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var numerals = "1234567890";
-var specCharacters = "!#$%&'()*+,-./:;<=>?@][^_`{|}~";
+// global variables (consolidate? array?)
+var lowerCase = "abcdefghijklmnopqrstuvwxyz".split("");
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+var numerals = "1234567890".split("");
+var specChar = "!)*+,-./:;<=>?@][^_`{|}~".split("");
 
 // Write password to the #password input
 function writePassword() {
@@ -32,10 +32,20 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", function() {
-    var passwordLength = window.prompt("How many characters will your password be? Type a number 8 - 128...");
-
-  if (!userChoice) {
+  var passwordLength = window.prompt("How many characters will your password be?\nType a number 8 - 128...");
+  
+  if (!passwordLength) {
     return;
   }
+
+  if (8 > passwordLength || 128 < passwordLength) {
+      alert("Password length must be between 8 to 128 characters.");
+      return;
+    }
+  var userlow = confirm("Will you include lower case letters?\nSelect ok for yes, cancel for no.");
+
+  var userupper = confirm("Will you include UPPER case letters?\nSelect ok for yes, cancel for no.");
+
+  var specChar = confirm("Will you include special characters?\nSelect ok for yes, cancel for no.")
 }
 ) 
