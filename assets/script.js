@@ -11,7 +11,10 @@
 //    if all false, alert(pick at least one variable)
 //    password must be random from selected variables
 //! need: password generated once all prompts are answered
-//! need: password displayed, local storage
+//    apply password length to comoposed array of selected variables
+//    make array randomly select from passwordArray into password
+//! need: password displayed, local storage?
+//    will display once generatePassword() is complete
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -21,10 +24,11 @@ var lowerCase = "abcdefghijklmnopqrstuvwxyz".split("");
 var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 var numerals = "1234567890".split("");
 var specChar = "!)*+,-./:;<=>?@][^_`{|}~".split("");
-var pwArray = []
+var passwordArray = [];
+// passwordArray.length = passwordLength;
 
 function generatePassword() {
-    var passwordLength = window.prompt("How many characters will your password be?\nType a number 8 - 128...");
+  var passwordLength = window.prompt("How many characters will your password be?\nType a number 8 - 128...");
   
   if (!passwordLength) {
     return;
@@ -34,44 +38,51 @@ function generatePassword() {
       alert("Password length must be between 8 to 128 characters.");
       return generatePassword();
     }
-  var userlow = confirm("Will you include lower case letters?\nSelect ok for yes, cancel for no.");
+  var userLower = confirm("Will you include lower case letters?\nSelect ok for yes, cancel for no.");
 
-  var userup = confirm("Will you include UPPER case letters?\nSelect ok for yes, cancel for no.");
+  var userUpper = confirm("Will you include UPPER case letters?\nSelect ok for yes, cancel for no.");
 
-  var usernumber = confirm("Will you include numbers?\nSelect ok for yes, cancel for no.");
+  var userNumber = confirm("Will you include numbers?\nSelect ok for yes, cancel for no.");
 
-  var userspecchar = confirm("Will you include special characters?\nSelect ok for yes, cancel for no.");
+  var userSpecchar = confirm("Will you include special characters?\nSelect ok for yes, cancel for no.");
 
-  if (!userlow && !userup && !userspecchar){
+  if (!userLower && !userUpper && !userSpecchar){
     alert("Must choose at least one variable type.\nPlease try again.");
     return generatePassword();
   }
 
-  if (userlow) {
+  if (userLower) {
     for (var i=0; i < lowerCase.length; i++){
-      pwArray.push(lowerCase[i]);
+      passwordArray.push(lowerCase[i]);
     } 
   }
 
-  if (userup) {
+  if (userUpper) {
     for (var i=0; i < upperCase.length; i++){
-      pwArray.push(upperCase[i]);
+      passwordArray.push(upperCase[i]);
     } 
   }
 
-  if (usernumber) {
+  if (userNumber) {
     for (var i=0; i < numerals.length; i++){
-      pwArray.push(numerals[i]);
+      passwordArray.push(numerals[i]);
     } 
   }
 
-  if (userspecchar) {
+  if (userSpecchar) {
     for (var i=0; i < specChar.length; i++){
-      pwArray.push(specChar[i]);
+      passwordArray.push(specChar[i]);
     } 
   }
 
-  console.log(pwArray)
+  // var index = Math.floor(Math.random() * passwordArray.length);
+  // var password = passwordArray[index];
+  var index = Array(passwordArray).fill(passwordArray).map(function(x) { return x[Math.floor(Math.random() * passwordArray.length)] }).join('');
+  // var index = (Math.random() * passwordArray.length).slice(0 - passwordLength);
+  // var password = passwordArray[index];
+
+  console.log(passwordArray);
+  console.log(index)
 }
 
 // Write password to the #password input
@@ -83,4 +94,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword)
+generateBtn.addEventListener("click", writePassword);
