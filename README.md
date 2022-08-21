@@ -14,6 +14,6 @@ This password generator can be used with copy+paste to create new, secure passwo
 
 ## Links
 
-- [Password Generator]()
+- [Password Generator](https://mladame.github.io/password-generator/)
 
-- [Github Repository]()
+- [Github Repository](https://github.com/mladame/password-generator)

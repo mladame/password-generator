@@ -75,17 +75,18 @@ function generatePassword() {
     } 
   }
 
-  
-    // let password = "";
-
-    var password = Array(passwordLength).fill(passwordArray).map(function(x) { return x[Math.floor(Math.random() * passwordArray.length)] }).join('');
-    // var index = Math.floor(Math.random() * passwordArray.length);
-    // passwordArray.forEach(myFunction);
+  // var password = Array.from(Math.floor(Math.random() * passwordArray.passwordLength));
+    let password = "";
+    // for (var i=0; i< passwordLength.length; i++){
+    //   var password = Array(passwordLength).fill(passwordArray).map(function(x) { return x[Math.floor(Math.random() * passwordArray.length)] }).join('');
+    // }
+    var index = Math.floor(Math.random() * passwordArray.length);
+    passwordArray.forEach(myFunction);
     // password = passwordArray[index];
 
-    // function myFunction(value, index, passwordLength) {
-    //   password += passwordLength;
-    // }
+    function myFunction(value, index, passwordLength) {
+      password += passwordArray;
+    }
     // for (let i=0; i < passwordLength.length; i++){
     //   password = String.fromCharCode(Math.floor(Math.random()*passwordArray.length*n));
     //   passwordArray.forEach(myFunction)
