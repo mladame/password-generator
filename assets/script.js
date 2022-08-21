@@ -75,15 +75,50 @@ function generatePassword() {
     } 
   }
 
-  // var index = Math.floor(Math.random() * passwordArray.length);
-  // var password = passwordArray[index];
-  var index = Array(passwordArray).fill(passwordArray).map(function(x) { return x[Math.floor(Math.random() * passwordArray.length)] }).join('');
-  // var index = (Math.random() * passwordArray.length).slice(0 - passwordLength);
-  // var password = passwordArray[index];
+  
+    // let password = "";
 
-  console.log(passwordArray);
-  console.log(index)
-}
+    var password = Array(passwordLength).fill(passwordArray).map(function(x) { return x[Math.floor(Math.random() * passwordArray.length)] }).join('');
+    // var index = Math.floor(Math.random() * passwordArray.length);
+    // passwordArray.forEach(myFunction);
+    // password = passwordArray[index];
+
+    // function myFunction(value, index, passwordLength) {
+    //   password += passwordLength;
+    // }
+    // for (let i=0; i < passwordLength.length; i++){
+    //   password = String.fromCharCode(Math.floor(Math.random()*passwordArray.length*n));
+    //   passwordArray.forEach(myFunction)
+
+    //   });
+    // }
+    // return password;
+  // }
+
+  console.log(password);
+  }
+  // for (let i =1; i< passwordLength; i++){
+  //   var index = Math.floor(Math.random() * passwordArray.length + 1);
+  //   var password = passwordArray[index];
+  
+
+
+  // for (var i=0; i<)
+// make iteration of password output, consolidate
+  // 
+
+  // var index = Array(passwordArray).fill(0, passwordLength).map(function(x) { 
+  //  return x[Math.floor(Math.random() * x.length)] }).join('');
+
+  // do {
+    
+  // }
+  
+// password array filled with chosen variables
+// lines 81-81, index outputs random variable from passwordArray
+// generate new password, fill with random variables from index up to passwordLength
+
+
 
 // Write password to the #password input
 function writePassword() {
