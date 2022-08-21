@@ -76,17 +76,22 @@ function generatePassword() {
   }
 
   // var password = Array.from(Math.floor(Math.random() * passwordArray.passwordLength));
-    let password = "";
-    // for (var i=0; i< passwordLength.length; i++){
+    let password = '';
+    for (var i=0; i< passwordLength; i++){
+      // password =+ index + passwordArray[i] + "";
+      var index = Math.floor(Math.random() * passwordArray.length);
+      password = passwordArray[index].concat(0, passwordLength.value);
+      // var password = passwordArray[index] + "" + passwordArray[i];
+    }
     //   var password = Array(passwordLength).fill(passwordArray).map(function(x) { return x[Math.floor(Math.random() * passwordArray.length)] }).join('');
     // }
-    var index = Math.floor(Math.random() * passwordArray.length);
-    passwordArray.forEach(myFunction);
-    // password = passwordArray[index];
+    // var index = Math.floor(Math.random() * passwordArray.length);
+    // passwordArray.forEach(myFunction);
+    // // password = passwordArray[index];
 
-    function myFunction(value, index, passwordLength) {
-      password += passwordArray;
-    }
+    // function myFunction(value, index, passwordLength) {
+    //   password += passwordArray;
+    // }
     // for (let i=0; i < passwordLength.length; i++){
     //   password = String.fromCharCode(Math.floor(Math.random()*passwordArray.length*n));
     //   passwordArray.forEach(myFunction)
@@ -99,8 +104,8 @@ function generatePassword() {
   console.log(password);
   }
   // for (let i =1; i< passwordLength; i++){
-  //   var index = Math.floor(Math.random() * passwordArray.length + 1);
-  //   var password = passwordArray[index];
+  //   
+  //   var 
   
 
 
